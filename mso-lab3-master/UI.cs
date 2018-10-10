@@ -28,10 +28,12 @@ namespace Lab3
             // *************************************
             // This is the code you need to refactor
             // *************************************
+            Logger.logInfo(info);
+            float price = PricingServer.getPrice(info);
+            Logger.logPrice(price);
 
-            
-
-            PaymentSystem.doPayment(info);
+            string log = PaymentSystem.doPayment(info, price);
+            Logger.logPayment(log);
 
 		}
 
