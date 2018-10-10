@@ -7,7 +7,7 @@ namespace Lab3
 {
     static class PricingServer
     {
-        public static float getPrice (UIInfo info)
+        public static float getPrice (Ticket info)
         {
             // Get number of tariefeenheden
             int tariefeenheden = Tariefeenheden.getTariefeenheden(info.From, info.To);

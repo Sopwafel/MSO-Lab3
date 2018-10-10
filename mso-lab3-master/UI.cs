@@ -23,17 +23,33 @@ namespace Lab3
 			initializeControls ();
 		}
 
-		private void handlePayment(UIInfo info)
+		private void handlePayment(Ticket info)
 		{
             // *************************************
             // This is the code you need to refactor
             // *************************************
+
+            // We renamed the UIInfo class to Ticket, in accordance with our UML diagram.
+
             Logger.logInfo(info);
             float price = PricingServer.getPrice(info);
             Logger.logPrice(price);
 
-            string log = PaymentSystem.doPayment(info, price);
+            string[] log = PaymentSystem.doPayment(info, price);
             Logger.logPayment(log);
+            
+            // Display something according to  
+            switch (log[0])
+            {
+                case "success":
+                    TicketPrinter.printTicket(info);
+                    break;
+                case "failure":
+
+                    break;
+                default:
+                    break;
+            }
 
 		}
 
@@ -166,7 +182,7 @@ namespace Lab3
 			pay.Click += (object sender, EventArgs e) => handlePayment(getUIInfo());
 		}
 
-		private UIInfo getUIInfo()
+		private Ticket getUIInfo()
 		{
 			UIClass cls;
 			if (firstClass.Checked)
@@ -201,7 +217,7 @@ namespace Lab3
 				break;
 			}
 
-			return new UIInfo ((string)fromBox.SelectedItem,
+			return new Ticket ((string)fromBox.SelectedItem,
 				(string)toBox.SelectedItem,
 				cls, way, dis, pment);
 		}

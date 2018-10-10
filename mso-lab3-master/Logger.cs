@@ -8,7 +8,7 @@ namespace Lab3
     // We pretend all functions in this class safely log events to a file.
     static class Logger
     {
-        public static void logInfo(UIInfo info)
+        public static void logInfo(Ticket info)
         {
         }
         public static void logPrice(float price)
@@ -17,7 +17,7 @@ namespace Lab3
         /// <summary>
         /// Logs information about a card payments
         /// </summary>
-        public static void logPayment(string paymentLog)
+        public static void logPayment(string[] paymentLog)
         {
         }
     }
