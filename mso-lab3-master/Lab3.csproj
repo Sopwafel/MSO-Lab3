@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logger.cs" />
+    <Compile Include="PaymentMethods.cs" />
     <Compile Include="PaymentSystem.cs" />
     <Compile Include="PricingServer.cs" />
     <Compile Include="Program.cs" />

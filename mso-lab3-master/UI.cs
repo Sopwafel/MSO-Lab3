@@ -23,7 +23,16 @@ namespace Lab3
 			initializeControls ();
 		}
 
-		private void handlePayment(Ticket info)
+        /// <summary>
+        /// Aborts the ticket buying process
+        /// </summary>
+        private void Abort()
+        {
+            System.Windows.Forms.MessageBox.Show("The sale has been aborted.");
+            Logger.Abort();
+        }
+
+        private void handlePayment(Ticket info)
 		{
             // *************************************
             // This is the code you need to refactor
@@ -31,21 +40,21 @@ namespace Lab3
 
             // We renamed the UIInfo class to Ticket, in accordance with our UML diagram.
 
-            Logger.logInfo(info);
+            Logger.logTicketInfo(info);
             float price = PricingServer.getPrice(info);
             Logger.logPrice(price);
 
             string[] log = PaymentSystem.doPayment(info, price);
             Logger.logPayment(log);
             
-            // Display something according to  
+            // Display something according to to the result of the paying 
             switch (log[0])
             {
                 case "success":
                     TicketPrinter.printTicket(info);
                     break;
                 case "failure":
-
+                    Abort();
                     break;
                 default:
                     break;
