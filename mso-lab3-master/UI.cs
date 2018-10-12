@@ -29,7 +29,6 @@ namespace Lab3
         private void Abort()
         {
             System.Windows.Forms.MessageBox.Show("The sale has been aborted.");
-            Logger.Abort();
         }
 
         private void handlePayment(Ticket ticket)
@@ -40,17 +39,11 @@ namespace Lab3
 
             // We renamed the UIInfo class to Ticket, in accordance with our UML diagram.
 
-            Logger.logTicketInfo(ticket);
-
             float price = PricingServer.getPrice(ticket);
-            Logger.logPrice(price);
 
-
-
-            string[] paymentResult = PaymentSystem.doPayment(ticket, price);
-            Logger.logPayment(paymentResult);
+            string[] paymentResult = PaymentSystem.handlePayment(ticket, price);
             
-            // Display something according to to the result of the paying 
+            // Display something according to to the result of the payment 
             switch (paymentResult[0])
             {
                 case "success":
