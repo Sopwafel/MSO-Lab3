@@ -45,6 +45,8 @@ namespace Lab3
             float price = PricingServer.getPrice(ticket);
             Logger.logPrice(price);
 
+
+
             string[] paymentResult = PaymentSystem.doPayment(ticket, price);
             Logger.logPayment(paymentResult);
             
@@ -194,36 +196,36 @@ namespace Lab3
 
 		private Ticket getUIInfo()
 		{
-			UIClass cls;
+			Class cls;
 			if (firstClass.Checked)
-				cls = UIClass.FirstClass;
+				cls = Class.FirstClass;
 			else
-				cls = UIClass.SecondClass;
+				cls = Class.SecondClass;
 
-			UIWay way;
+			Way way;
 			if (oneWay.Checked)
-				way = UIWay.OneWay;
+				way = Way.OneWay;
 			else
-				way = UIWay.Return;
+				way = Way.Return;
 
-			UIDiscount dis;
+			Discount dis;
 			if (noDiscount.Checked)
-				dis = UIDiscount.NoDiscount;
+				dis = Discount.NoDiscount;
 			else if (twentyDiscount.Checked)
-				dis = UIDiscount.TwentyDiscount;
+				dis = Discount.TwentyDiscount;
 			else
-				dis = UIDiscount.FortyDiscount;
+				dis = Discount.FortyDiscount;
 
-			UIPayment pment;
+			Payment pment;
 			switch ((string)payment.SelectedItem) {
 			case "Credit card":
-				pment = UIPayment.CreditCard;
+				pment = Payment.CreditCard;
 				break;
 			case "Debit card":
-				pment = UIPayment.DebitCard;
+				pment = Payment.DebitCard;
 				break;
 			default:
-				pment = UIPayment.Cash;
+				pment = Payment.Cash;
 				break;
 			}
 

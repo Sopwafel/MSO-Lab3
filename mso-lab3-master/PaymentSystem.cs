@@ -13,17 +13,17 @@ namespace Lab3
         /// TODO: Maybe add a return bool indicating succes or failure.
         /// </summary>
         /// <param name="info"></param>
-        public static string[] doPayment(Ticket info, float price)
+        public static string[] handlePayment(Ticket info, float price)
         {
             PaymentMethods strategy;
             string[] log = new string[8];
 
             switch (info.Payment)
             {
-                case UIPayment.CreditCard:
+                case Payment.CreditCard:
                     strategy = new CreditCardPayment(price);
                     break;
-                case UIPayment.DebitCard:
+                case Payment.DebitCard:
                     strategy = new DebitCardPayment(price);
                     break;
                 default:

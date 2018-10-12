@@ -2,26 +2,27 @@
 
 namespace Lab3
 {
-	public enum UIClass
+    // We renamed these enumerators to make them more clear.
+	public enum Class
 	{
 		FirstClass,
 		SecondClass
 	}
 
-	public enum UIWay
+	public enum Way
 	{
 		OneWay,
 		Return
 	}
 
-	public enum UIDiscount
+	public enum Discount
 	{
 		NoDiscount,
 		TwentyDiscount,
 		FortyDiscount
 	}
 
-	public enum UIPayment
+	public enum Payment
 	{
 		DebitCard,
 		CreditCard,
@@ -31,16 +32,16 @@ namespace Lab3
 	public struct Ticket
 	{
 		string from, to;
-		UIClass cls;
-		UIWay way;
-		UIDiscount discount;
-		UIPayment payment;
+		Class firstOrSecondClass;
+		Way way;
+		Discount discount;
+		Payment payment;
 
-		public Ticket (string from, string to, UIClass cls, UIWay way, UIDiscount discount, UIPayment payment)
+		public Ticket (string from, string to, Class cls, Way way, Discount discount, Payment payment)
 		{
 			this.from = from;
 			this.to = to;
-			this.cls = cls;
+			this.firstOrSecondClass = cls;
 			this.way = way;
 			this.discount = discount;
 			this.payment = payment;
@@ -58,25 +59,25 @@ namespace Lab3
 			}
 		}
 
-		public UIClass Class {
+		public Class Class {
 			get {
-				return cls;
+				return firstOrSecondClass;
 			}
 		}
 
-		public UIWay Way {
+		public Way Way {
 			get {
 				return way;
 			}
 		}
 
-		public UIDiscount Discount {
+		public Discount Discount {
 			get {
 				return discount;
 			}
 		}
 
-		public UIPayment Payment {
+		public Payment Payment {
 			get {
 				return payment;
 			}
