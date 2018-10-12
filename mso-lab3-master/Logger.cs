@@ -21,6 +21,12 @@ namespace Lab3
         {
         }
         /// <summary>
+        /// Logs information about printing the ticket
+        /// </summary>
+        public static void logPrint()
+        {
+        }
+        /// <summary>
         /// Logs the abortion of the sale process
         /// </summary>
         public static void Abort()

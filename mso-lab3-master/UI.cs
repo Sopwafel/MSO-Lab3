@@ -32,7 +32,7 @@ namespace Lab3
             Logger.Abort();
         }
 
-        private void handlePayment(Ticket info)
+        private void handlePayment(Ticket ticket)
 		{
             // *************************************
             // This is the code you need to refactor
@@ -40,18 +40,19 @@ namespace Lab3
 
             // We renamed the UIInfo class to Ticket, in accordance with our UML diagram.
 
-            Logger.logTicketInfo(info);
-            float price = PricingServer.getPrice(info);
+            Logger.logTicketInfo(ticket);
+
+            float price = PricingServer.getPrice(ticket);
             Logger.logPrice(price);
 
-            string[] log = PaymentSystem.doPayment(info, price);
-            Logger.logPayment(log);
+            string[] paymentResult = PaymentSystem.doPayment(ticket, price);
+            Logger.logPayment(paymentResult);
             
             // Display something according to to the result of the paying 
-            switch (log[0])
+            switch (paymentResult[0])
             {
                 case "success":
-                    TicketPrinter.printTicket(info);
+                    TicketPrinter.printTicket(ticket);
                     break;
                 case "failure":
                     Abort();
