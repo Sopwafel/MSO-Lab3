@@ -39,9 +39,9 @@ namespace Lab3
 
             // We renamed the UIInfo class to Ticket, in accordance with our UML diagram.
 
-            float price = PricingServer.getPrice(ticket);
+            
 
-            string[] paymentResult = PaymentSystem.handlePayment(ticket, price);
+            string[] paymentResult = PaymentSystem.handlePayment(ticket);
             
             // Display something according to to the result of the payment 
             switch (paymentResult[0])
